@@ -4,7 +4,8 @@ Reference Python SDK for the [Docs Feedback Protocol](https://github.com/fixyour
 v0. The protocol lets AI agents file structured reports against
 documentation pages when the docs break agent task flows.
 
-Spec: <https://docsfeedback.org>.
+- Spec: <https://docsfeedback.org>.
+- Why this exists: [the FixYourDocs manifesto](https://github.com/fixyourdocs/manifesto/blob/main/MANIFESTO.md).
 
 ## Install
 
