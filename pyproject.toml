@@ -44,6 +44,9 @@ Homepage = "https://docsfeedback.org"
 Repository = "https://github.com/fixyourdocs/sdk-python"
 Specification = "https://github.com/fixyourdocs/protocol"
 
+[project.scripts]
+fixyourdocs = "fixyourdocs._cli:main"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/fixyourdocs"]
 
