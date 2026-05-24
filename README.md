@@ -15,6 +15,32 @@ pip install fixyourdocs
 
 Requires Python 3.9+.
 
+## CLI
+
+The package ships a `fixyourdocs` console script covering the two
+one-liners from the [agents-md-snippet](https://github.com/fixyourdocs/agents-md-snippet)
+README:
+
+```sh
+# Adds the canonical AGENTS.md block to your repo. Idempotent.
+pipx run fixyourdocs init
+
+# Sends a single report to the Hub.
+pipx run fixyourdocs report \
+  --doc-url https://example.com/docs/install \
+  --summary "Install fails on macOS 14" \
+  --agent claude-code \
+  --kind broken
+```
+
+`init` auto-detects `AGENTS.md`, `CLAUDE.md`, `.cursor/rules`, or
+`.github/copilot-instructions.md` and appends to whichever exists
+(falling back to creating `AGENTS.md`). Pass `--file <path>` to override.
+
+`report` accepts `--details`, `--suggested-fix`, `--api-url`, `--token`,
+and `--json` for machine-readable output. Exit codes: `0` success,
+`2` user error, `1` transport or server error.
+
 ## Usage (sync)
 
 ```python
