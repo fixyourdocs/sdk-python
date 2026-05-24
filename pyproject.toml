@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "fixyourdocs"
-version = "0.0.0"
+version = "0.1.0"
 description = "Reference Python SDK for the Docs Feedback Protocol"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -13,12 +13,30 @@ license-files = ["LICENSE"]
 authors = [{ name = "FixYourDocs", email = "hello@fixyourdocs.org" }]
 keywords = ["docs", "documentation", "agents", "ai", "feedback", "protocol"]
 classifiers = [
-  "Development Status :: 1 - Planning",
+  "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Documentation",
   "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "httpx>=0.27,<1",
+  "pydantic>=2.6,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.23",
+  "respx>=0.21",
+  "mypy>=1.10",
+  "ruff>=0.5",
 ]
 
 [project.urls]
@@ -28,3 +46,23 @@ Specification = "https://github.com/fixyourdocs/protocol"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/fixyourdocs"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+# UP006/UP007/UP045 push PEP 585 / PEP 604 generics that pydantic v2 does
+# not resolve at runtime on Python 3.9, even with
+# `from __future__ import annotations`. Keep `Optional[...]` / `List[...]`
+# style for runtime-evaluated annotations on this minimum supported version.
+ignore = ["UP006", "UP007", "UP045"]
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
