@@ -94,7 +94,7 @@ def test_default_headers_no_token(golden_report: Report) -> None:
     headers = route.calls.last.request.headers
     assert headers["Content-Type"].startswith("application/json")
     assert headers["X-Docs-Feedback-Protocol-Version"] == "0"
-    assert headers["User-Agent"] == "fixyourdocs-python/0.1.0"
+    assert headers["User-Agent"] == "fixyourdocs-python/0.2.0"
     assert "Authorization" not in headers
     assert "Idempotency-Key" not in headers
 

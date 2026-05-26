@@ -86,7 +86,7 @@ async def test_headers_with_token_and_idempotency(golden_report: Report) -> None
     assert headers["Authorization"] == "Bearer opaque-token"
     assert headers["Idempotency-Key"] == "key-123"
     assert headers["X-Docs-Feedback-Protocol-Version"] == "0"
-    assert headers["User-Agent"] == "fixyourdocs-python/0.1.0"
+    assert headers["User-Agent"] == "fixyourdocs-python/0.2.0"
 
 
 @respx.mock
