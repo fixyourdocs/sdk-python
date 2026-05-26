@@ -5,7 +5,7 @@ See <https://github.com/fixyourdocs/protocol> for the wire-format spec.
 
 from __future__ import annotations
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from fixyourdocs._results import SendResult
 from fixyourdocs.client import AsyncClient, Client

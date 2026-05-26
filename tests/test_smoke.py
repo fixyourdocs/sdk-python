@@ -2,7 +2,7 @@ import fixyourdocs
 
 
 def test_import() -> None:
-    assert fixyourdocs.__version__ == "0.1.0"
+    assert fixyourdocs.__version__ == "0.2.0"
 
 
 def test_public_exports() -> None:
