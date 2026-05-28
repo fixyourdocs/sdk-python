@@ -145,7 +145,6 @@ def _do_report(
                     "id": result.id,
                     "received_at": result.received_at.isoformat(),
                     "is_duplicate": result.is_duplicate,
-                    "url": f"{api_url}/r/{result.id}",
                 }
             )
             + "\n"
@@ -153,7 +152,6 @@ def _do_report(
     else:
         label = "Duplicate report" if result.is_duplicate else "Report accepted"
         stdout.write(f"{label}: {result.id}\n")
-        stdout.write(f"View: {api_url}/r/{result.id}\n")
     return 0
 
 
