@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
-authors = [{ name = "FixYourDocs", email = "hello@fixyourdocs.org" }]
+authors = [{ name = "FixYourDocs", email = "hello@fixyourdocs.io" }]
 keywords = ["docs", "documentation", "agents", "ai", "feedback", "protocol"]
 classifiers = [
   "Development Status :: 3 - Alpha",
